@@ -13,6 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+/**
+ * Halaman Utama
+ */
+Route::get('/', 'MainController@index')->name('main_page');
+
+
+/**
+ * Route Auth
+ */
+Route::namespace('Auth')->group(function () {
+    Route::get('login', 'LoginController@login')->name('login');
+    Route::post('login', 'LoginController@login_action')->name('login_action');
+
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('logout', 'LoginController@logout')->name('logout');
+    });
 });
