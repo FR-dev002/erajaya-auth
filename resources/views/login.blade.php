@@ -29,7 +29,7 @@
                 <form action="{{route('login_action')}}" method="POST">
                     {{ csrf_field() }}
                     <div class="input-group mb-3">
-                        <input type="text" value="ramachan@gmail.com" name="username" class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}" placeholder="username">
+                        <input type="text" value="" name="username" class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}" placeholder="username">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope @error('username') text-red @enderror"></span>
@@ -42,7 +42,7 @@
                         @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" value="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password">
+                        <input type="password" value="" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock @error('password') text-red @enderror"></span>
