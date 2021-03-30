@@ -40,4 +40,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    
+    /**
+     * @desc Join ke table role_user
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'role_users');
+    }
+
+    /**
+     * @desc Check apakah User sudah memiliki role
+     */
+    public function getRole()
+    {
+        return $this->roles()
+            ->select('name')
+            ->first()->name;
+    }
+
 }
